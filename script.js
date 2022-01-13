@@ -21,7 +21,7 @@ function create_url(){
    }
    // checking if the payload with more 64 charters
    if(pay_loads.length>64){
-   alert("the size of the payload is more than 64 byte remove some items"); 
+   alert("the size of the payload is more than 64 bytes please remove some items"); 
    } 
    //checking if the payload is empty
    else if(pay_loads ==="o_x"){
