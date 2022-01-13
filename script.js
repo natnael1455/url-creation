@@ -19,11 +19,16 @@ function create_url(){
 	   i++;
 	}
    }
-   if(pay_loads.length<=64){
-   alert(url+pay_loads);
+   // checking if the payload with more 64 charters
+   if(pay_loads.length>64){
+   alert("the size of the payload is more than 64 byte remove some items"); 
    } 
+   //checking if the payload is empty
+   else if(pay_loads ==="o_x"){
+	alert("you did not select any item"); 
+   }
    else{
-	alert("the size of the payload is more than 64 byte remove some items"); 
+	alert(url+pay_loads);
    }
 }
 
