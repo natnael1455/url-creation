@@ -1,12 +1,11 @@
 var pay_load={};
-
 // url creating function 
 function create_url(){
 	var url = "https://t.me/kamata_test_bot?start=";
 	var pay_loads="o_x"
 	var i=0;
    for(let key in pay_load) {
-	   var short_code=key;
+	   var short_code=key.replace(/\s/g, '');
 	   var value = pay_load[key];
 	   if(value !=0){
 		
@@ -82,7 +81,6 @@ $('.visibility-cart').on('click',function(){
 		var parent = $this.parent().attr('id');
 		var $input = $this.closest('div').find('input');
 		var value = parseInt($input.val());
-
 		if (value < 100) {
 		value = value + 1;
 		} else {

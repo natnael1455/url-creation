@@ -106,6 +106,14 @@ a {
   font-size: 1.5em;
 }
 
+.cat {
+  background: #f3e635;
+  color: rgb(5, 5, 5);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
 .tf {
   background: #f34d35;
   text-transform: uppercase;

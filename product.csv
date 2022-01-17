@@ -1,0 +1,6 @@
+name,category,sub_category,amount,unit_price,currency,short_code,description
+banana,fruit,,20,2,cigaret,ban,yellow fruit 
+oranage,fruit,,30,1,euro,org,round fruit
+Mango,fruit,,10,3,banana,man,tropical fruit
+book,stationery ,,40,5,Mango,bok,some thing to wirte on
+pen ,stationery ,,100,1,usd,pen,some thing to wirte with
