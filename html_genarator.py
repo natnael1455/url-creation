@@ -1,46 +1,42 @@
 import pandas as pd
 
 
-amout_set={}
 def product_section(row):
-    product_top ="""
+    product_top = """
     <div class="layout-inline row">
         
           <div class="col col-pro layout-inline">
              <p>
-    """ 
-    product_name= row['name']
-    before_price ="""
+    """
+    product_name = row["name"]
+    before_price = """
     </p>
           </div>
         
           <div class="col col-price col-numeric align-center ">
             <p>
     """
-            
-    unit_price = row['unit_price']
-    
-    
-    before_currency= """
+
+    unit_price = row["unit_price"]
+
+    before_currency = """
     </p>
           </div>
     <div class="col col-vat">
       <p>
       """
-     
-    currency = row['currency']
-    
-    
-    
-    before_code ="""
+
+    currency = row["currency"]
+
+    before_code = """
     
           </p>
           </div>
-          <div class="col col-qty layout-inline" id=" """   
-          
-    code= row['short_code']
-          
-    product_bottum="""">
+          <div class="col col-qty layout-inline" id=" """
+
+    code = row["short_code"]
+
+    product_bottum = """">
           
             <a href="#" class="qty qty-minus">-</a>
               <input type="numeric" value="0" />
@@ -53,38 +49,47 @@ def product_section(row):
           </div>
      </div>
     """
-    message = product_top + product_name + before_price + str(unit_price)+ before_currency + currency + before_code + code + product_bottum
+    message = (
+        product_top
+        + product_name
+        + before_price
+        + str(unit_price)
+        + before_currency
+        + currency
+        + before_code
+        + code
+        + product_bottum
+    )
     return message
-    
-def categor_section (key,catagory_data):
-    category_top="""
+
+
+def category_section(key, category_data):
+    category_top = """
     <div class="layout-inline row cat">
     <div class="col col-pro layout-inline">
     <p>
-    """ 
-    category_bottom="""
+    """
+    category_bottom = """
     </P>
     </div>
     </div>
     """
-    pro_section=""""""
-    for index, row in catagory_data.iterrows():
+    pro_section = """"""
+    for index, row in category_data.iterrows():
         pro_section = pro_section + product_section(row)
-        
-    message = category_top + key  + category_bottom + pro_section
+
+    message = category_top + key + category_bottom + pro_section
     return message
 
 
+df = pd.read_csv("product.csv")
 
-df = pd.read_csv('product.csv')
-
-grouped_df= df.groupby('category')
+grouped_df = df.groupby("category")
 
 
-    
-f = open('advanced.html','w')
+f = open("advanced.html", "w")
 
-top= """
+top = """
 <html>
   <head>
     <link rel="stylesheet" href="style.css">
@@ -120,18 +125,17 @@ top= """
         </div>
       <!-- product start in here -->
       """
-      
-      
-middle=""""""
-     
+
+
+middle = """"""
+
 for key, item in grouped_df:
 
-    catagory_data=grouped_df.get_group(key)
+    category_data = grouped_df.get_group(key)
 
-    middle=middle + categor_section(key,catagory_data)
+    middle = middle + category_section(key, category_data)
 
-     
-     
+
 bottum = """
         
       <!-- product ends in here 2-->
@@ -167,9 +171,7 @@ bottum = """
 </html>
 
 """
-message = top+ middle + bottum
+message = top + middle + bottum
 f.write(message)
 f.close()
-
-
 

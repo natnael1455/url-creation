@@ -1,6 +1,7 @@
+/* stylelint-disable property-no-unknown */
 html {
   background: #bbc3c6;
-  font: 62.5%/1.5em "Trebuchet Ms", helvetica;
+  font: 62.5%/1.5em "Trebuchet Ms", Helvetica,sans-serif;
 }
 
 * {
@@ -9,16 +10,12 @@ html {
   font-smoothing: antialiased;
 }
 
-
-
 .shopper {
   text-transform: lowercase;
-  font: 2em 'Shopper', sans-serif;
+  font: 2em Shopper, sans-serif;
   line-height: 0.5em;
   display: inline-block;
 }
-
-
 
 h1 {
   text-transform: uppercase;
@@ -33,7 +30,7 @@ p {
 
 input {
   border: 0.3em solid #bbc3c6;
-  padding: 0.5em 0.3em; 
+  padding: 0.5em 0.3em;
   font-size: 1.4em;
   color: #8a8a8a;
   text-align: center;
@@ -43,7 +40,7 @@ img {
   max-width: 9em;
   max-height: 10em;
   width: 100%;
-  overflow: hidden; 
+  overflow: hidden;
   margin-right: 1em;
 }
 
@@ -54,13 +51,12 @@ a {
 .container {
   max-width: 75em;
   width: 95%;
-  margin: 40px auto;  
+  margin: 40px auto;
   overflow: hidden;
   position: relative;
-  
   border-radius: 0.6em;
   background: #ecf0f1;
-  box-shadow: 0 0.5em 0 rgba(138, 148, 152, 0.2);
+  box-shadow: 0 0.5em 0 rgb(138 148 152 / 20%);
 }
 
 .heading {
@@ -82,13 +78,12 @@ a {
 }
 
 .table {
-  background: #ffffff;
+  background: #ffff;
   border-radius: 0.6em;
   overflow: hidden;
   clear: both;
   margin-bottom: 1.8em;
 }
-
 
 .layout-inline > * {
   display: inline-block;
@@ -108,7 +103,7 @@ a {
 
 .cat {
   background: #f3e635;
-  color: rgb(5, 5, 5);
+  color: rgb(5 5 5);
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1.5em;
@@ -118,7 +113,7 @@ a {
   background: #f34d35;
   text-transform: uppercase;
   text-align: right;
-  font-size: 1.2em;  
+  font-size: 1.2em;
 }
 
 .tf p {
@@ -145,7 +140,7 @@ a {
 }
 
 .col-numeric p {
-  font: bold 1.8em helvetica;
+  font: bold 1.8em helvetica,sans-serif;
 }
 
 .col-total p {
@@ -169,20 +164,19 @@ a {
   color: #fff;
   top: 0.5em;
   right: 0.5em;
-  font:  bold 2em arial;
+  font: bold 2em arial,sans-serif;
   border: 0.16em solid #fff;
   border-radius: 2.5em;
-  padding: 0 0.22em 0 0.25em ;
+  padding: 0 0.22em 0 0.25em;
 }
 
 .col-qty > * {
-  vertical-align: middle; 
+  vertical-align: middle;
 }
 
 .col-qty > input {
   max-width: 2.6em;
 }
-
 
 a.qty {
   width: 1em;
@@ -191,7 +185,7 @@ a.qty {
   font-size: 2.5em;
   font-weight: bold;
   text-align: center;
-  background: #43ace3;  
+  background: #43ace3;
   color: #fff;
 }
 
@@ -206,41 +200,38 @@ a.qty:hover {
   font-weight: bold;
   background: #43ace3;
   color: #fff;
-  box-shadow: 0 3px 0 rgba(59,154,198, 1)
+  box-shadow: 0 3px 0 rgb(59 154 198 / 100%);
 }
 
 .btn:hover {
-  box-shadow: 0 3px 0 rgba(59,154,198, 0)
+  box-shadow: 0 3px 0 rgb(59 154 198 / 0%);
 }
 
 .btn-update {
   float: right;
-  margin: 0 0 1.5em 0;
+  margin: 0  1.5em ;
 }
 
 .transition {
   transition: all 0.3s ease-in-out;
 }
 
-@media screen and ( max-width: 755px) {
+@media screen and (max-width: 755px) {
   .container {
     width: 98%;
   }
-  
+
   .col-pro {
     width: 35%;
   }
-  
+
   .col-qty {
     width: 22%;
   }
-  
+
   img {
     max-width: 100%;
     margin-bottom: 1em;
   }
 }
 
-@media screen and ( max-width: 591px) {
-  
-}
