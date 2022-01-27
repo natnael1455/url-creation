@@ -38,7 +38,7 @@ def product_section(row):
               <input type="numeric" value="0" />
             <a href="#" class="qty qty-plus">+</a>
           </div>
-          <div class="col-sm col-total col-numeric align-center id="pro-total">
+          <div class="col-sm col-total col-numeric align-center" id="pro-total">
           <p> 0.00</p>
           </div>
      </div>
