@@ -121,10 +121,6 @@ a {
   font-weight: bold;
 }
 
-.col {
-  padding: 1em;
-  width: 12%;
-}
 
 .col-pro {
   width: 44%;
@@ -147,13 +143,9 @@ a {
   color: #12c8b1;
 }
 
-.tf .col {
-  width: 20%;
-}
 
-.row > div {
-  vertical-align: middle;
-}
+
+
 
 .row-bg2 {
   background: #f7f7f7;
@@ -209,7 +201,7 @@ a.qty:hover {
 
 .btn-update {
   float: right;
-  margin: 0  1.5em ;
+  margin: 0  1.5em  1.5em 0;
 }
 
 .transition {

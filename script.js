@@ -56,15 +56,21 @@ $('a.qty-minus').on('click', function (e) {
     e.preventDefault();
     var $this = $(this);
     var parent = $this.closest('div').attr('id');
+    var price = parseFloat($this.parent().parent().children('#price').text());
+    var pro_total = $this.parent().parent().children('#pro-total');
     var $input = $this.closest('div').find('input');
     var value = parseInt($input.val());
-
+    var over_all = $('#over-all');
+    var over_all_total = parseFloat(over_all.text());
     if (value > 1) {
         value = value - 1;
+        over_all_total = over_all_total - price;
     } else {
         value = 0;
     }
-
+    var total = value * price;
+    pro_total.children().text(total.toFixed(2));
+    over_all.text(over_all_total.toFixed(2));
     $input.val(value);
     pay_load[parent] = value;
 });
@@ -73,14 +79,21 @@ $('a.qty-plus').on('click', function (e) {
     e.preventDefault();
     var $this = $(this);
     var parent = $this.parent().attr('id');
+    var price = parseFloat($this.parent().parent().children('#price').text());
+    var pro_total = $this.parent().parent().children('#pro-total');
+    var over_all = $('#over-all');
+    var over_all_total = parseFloat(over_all.text());
     var $input = $this.closest('div').find('input');
     var value = parseInt($input.val());
     if (value < 100) {
         value = value + 1;
+        over_all_total = over_all_total + price;
     } else {
         value = 100;
     }
-
+    var total = value * price;
+    pro_total.children().text(total.toFixed(2));
+    over_all.text(over_all_total.toFixed(2));
     $input.val(value);
     pay_load[parent] = value;
 });
