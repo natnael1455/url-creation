@@ -5,7 +5,7 @@ def product_section(row):
     product_top = """
     <div class="layout-inline row">
         
-          <div class="col col-pro layout-inline">
+          <div class="col-sm col-pro layout-inline">
              <p>
     """
     product_name = row["name"]
@@ -13,7 +13,7 @@ def product_section(row):
     </p>
           </div>
         
-          <div class="col col-price col-numeric align-center ">
+          <div class="col-sm col-price col-numeric align-center " id="price">
             <p>
     """
 
@@ -22,7 +22,7 @@ def product_section(row):
     before_currency = """
     </p>
           </div>
-    <div class="col col-vat">
+    <div class="col-sm col-vat align-center">
       <p>
       """
 
@@ -32,7 +32,7 @@ def product_section(row):
     
           </p>
           </div>
-          <div class="col col-qty layout-inline" id=" """
+          <div class="col-sm col-qty layout-inline" id=" """
 
     code = row["short_code"]
 
@@ -44,8 +44,8 @@ def product_section(row):
           </div>
         
           
-          <div class="col col-total col-numeric">               
-            <p id="total"></p>
+          <div class="col-sm col-total col-numeric align-center" id="pro-total">               
+            <p> 0.00</p>
           </div>
      </div>
     """
@@ -66,7 +66,7 @@ def product_section(row):
 def category_section(key, category_data):
     category_top = """
     <div class="layout-inline row cat">
-    <div class="col col-pro layout-inline">
+    <div class="col-sm col-pro layout-inline">
     <p>
     """
     category_bottom = """
@@ -98,33 +98,27 @@ top = """
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
-    <div class="container">
-      <div class="heading">
-        <h1>
-          <span class="shopper">s</span> Shopping Cart
-        </h1>
-    
-        <a href="#" class="visibility-cart transition is-open">X</a>    
-      </div>
+    <div class=" container-md">
+      
   
       <div class="cart transition is-open">
     
-        <a href="#" class="btn btn-update">Update cart</a>
+        <a href="#" class="btn btn-update">Buy</a>
     
     
         <div class="table">
       <!-- product header -->
 
         <div class="layout-inline row th">
-          <div class="col col-pro">Product</div>
-          <div class="col col-price align-center "> 
+          <div class="col-sm col-pro">Product</div>
+          <div class="col-sm col-price align-center "> 
              Price
           </div>
-          <div class="col align-center">Currency</div>
-          <div class="col col-qty align-center">QTY</div>
-          <div class="col">Total</div>
+          <div class="col-sm align-center align-center">Currency</div>
+          <div class="col-sm col-qty align-center">QTY</div>
+          <div class="col-sm align-center">Total</div>
         </div>
-      <!-- product start in here -->
+      <!-- product start in -->
       """
 
 
@@ -139,34 +133,26 @@ for key, item in grouped_df:
 
 bottum = """
         
-      <!-- product ends in here 2-->
+     <!-- product ends in here -->
       
        <div class="tf">
-         <div class="row layout-inline">
-           <div class="col">
-             <p>VAT</p>
-           </div>
-           <div class="col"></div>
-         </div>
-         <div class="row layout-inline">
-           <div class="col">
-             <p>Shipping</p>
-           </div>
-           <div class="col"></div>
-         </div>
-          <div class="row layout-inline">
-           <div class="col">
+         
+         
+          <div class="row layout-inline ">
+           <div class="col-sm align-center">
              <p>Total</p>
            </div>
-           <div class="col"></div>
+           <div class="col-sm col-numeric align-center">
+           <p id="over-all">0.00</p>
+          </div>
          </div>
        </div>         
   </div>
     
-    <a href="#" class="btn btn-update">Update cart</a>
+    <a href="#" class="btn btn-update">Buy</a>
   
     </div>
-   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="script.js"></script>
   </body>
 </html>
