@@ -62,7 +62,7 @@ $('a.qty-minus').on('click', function (e) {
     var value = parseInt($input.val());
     var over_all = $('#over-all');
     var over_all_total = parseFloat(over_all.text());
-    if (value > 1) {
+    if (value > 0) {
         value = value - 1;
         over_all_total = over_all_total - price;
     } else {
