@@ -1,0 +1,15 @@
+repos:
+    - repo: https://github.com/psf/black
+      rev: 21.12b0
+      hooks:
+          - id: black
+    - repo: https://github.com/pre-commit/mirrors-prettier
+      rev: v2.5.1
+      hooks:
+          - id: prettier
+            types_or: [css, javascript,json]
+            additional_dependencies:
+                - prettier@2.5.1
+                - prettier-eslint@13.0.0
+                - prettier-eslint-cli@5.0.1
+                - prettier-stylelint@0.4.2
