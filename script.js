@@ -62,7 +62,7 @@ $('a.qty-minus').on('click', function (e) {
     var value = parseInt($input.val());
     var over_all = $('#over-all');
     var over_all_total = parseFloat(over_all.text());
-    if (value > 1) {
+    if (value > 0) {
         value = value - 1;
         over_all_total = over_all_total - price;
     } else {
@@ -81,6 +81,7 @@ $('a.qty-plus').on('click', function (e) {
     var parent = $this.parent().attr('id');
     var price = parseFloat($this.parent().parent().children('#price').text());
     var pro_total = $this.parent().parent().children('#pro-total');
+    console.log(pro_total);
     var over_all = $('#over-all');
     var over_all_total = parseFloat(over_all.text());
     var $input = $this.closest('div').find('input');
@@ -91,7 +92,9 @@ $('a.qty-plus').on('click', function (e) {
     } else {
         value = 100;
     }
+
     var total = value * price;
+    console.log(total);
     pro_total.children().text(total.toFixed(2));
     over_all.text(over_all_total.toFixed(2));
     $input.val(value);
