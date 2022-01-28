@@ -68,7 +68,7 @@ def category_section(key, category_data):
     </div>
     </div>
     """
-    pro_section = """"""
+    pro_section = ""
     for _index, row in category_data.iterrows():
         pro_section = pro_section + product_section(row)
     return category_top + key + category_bottom + pro_section
@@ -79,9 +79,8 @@ df = pd.read_csv("product.csv")
 grouped_df = df.groupby("category")
 
 
-html_file = open("advanced.html", "w")
-
-top = """
+with open("advanced.html", "w") as html_file:
+    top = """
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -107,17 +106,12 @@ top = """
       <!-- product start in -->
       """
 
+    middle = ""
+    for key, _item in grouped_df:
+        category_data = grouped_df.get_group(key)
+        middle = middle + category_section(key, category_data)
 
-middle = """"""
-
-for key, _item in grouped_df:
-
-    category_data = grouped_df.get_group(key)
-
-    middle = middle + category_section(key, category_data)
-
-
-bottum = """
+    bottum = """
      <!-- product ends in here -->
        <div class="tf">
           <div class="row layout-inline ">
@@ -138,6 +132,6 @@ bottum = """
 </html>
 
 """
-message = top + middle + bottum
-html_file.write(message)
-html_file.close()
+    message = top + middle + bottum
+    html_file.write(message)
+    html_file.close()
