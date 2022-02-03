@@ -15,6 +15,17 @@ repos:
       hooks:
           - id: flake8
 
+    - repo: https://github.com/pre-commit/mirrors-prettier
+      rev: v2.5.1
+      hooks:
+          - id: prettier
+            types_or: [css, javascript,json]
+            additional_dependencies:
+                - prettier@2.5.1
+                - prettier-eslint@13.0.0
+                - prettier-eslint-cli@5.0.1
+                - prettier-stylelint@0.4.2
+                
     - repo: https://github.com/pre-commit/mirrors-eslint
       rev: v8.7.0
       hooks:
@@ -27,13 +38,4 @@ repos:
       hooks:
           - id: stylelint
             additional_dependencies: ['stylelint@14.2.0','stylelint-config-prettier@9.0.3' ,'stylelint-config-standard@24.0.0']
-    - repo: https://github.com/pre-commit/mirrors-prettier
-      rev: v2.5.1
-      hooks:
-          - id: prettier
-            types_or: [css, javascript,json]
-            additional_dependencies:
-                - prettier@2.5.1
-                - prettier-eslint@13.0.0
-                - prettier-eslint-cli@5.0.1
-                - prettier-stylelint@0.4.2
+    
