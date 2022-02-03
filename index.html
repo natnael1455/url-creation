@@ -22,9 +22,10 @@
 
         <div class="layout-inline row th">
           <div class="col col-pro">Product</div>
-          <div class="col col-price align-center "> 
+          <div class="col col-price align-left "> 
              Price
           </div>
+          <div class="col col-vat ">Currency</div>
           <div class="col col-qty align-center">QTY</div>
           <div class="col align-center">Total</div>
         </div>
@@ -37,10 +38,14 @@
              <p>Orange</p>
           </div>
         
-          <div class="col col-price col-numeric align-center " id="price">
+          <div class="col col-price col-numeric align-left " id="price">
             <p>59.99</p>
           </div>
-
+          <div class="col col-vat ">
+            <p>
+                euro
+            </p>
+        </div>
           <div class="col col-qty layout-inline" id="org">
             <a href="#" class="qty qty-minus">-</a>
               <input type="numeric" value="0" />
@@ -59,10 +64,14 @@
           <p>Banana</p>
         </div>
         
-        <div class="col col-price col-numeric align-center " id="price">
+        <div class="col col-price col-numeric align-left " id="price">
           <p>40.89</p>
         </div>
-
+        <div class="col col-vat ">
+          <p>
+              euro
+          </p>
+      </div>
         <div class="col col-qty layout-inline" id="ban">
           <a href="#" class="qty qty-minus">-</a>
             <input type="numeric" value="0" />
@@ -80,10 +89,14 @@
           <p>Mango</p>
         </div>
         
-        <div class="col col-price col-numeric align-center " id="price">
+        <div class="col col-price col-numeric align-left " id="price">
           <p>36.50</p>
         </div>
-
+        <div class="col col-vat ">
+          <p>
+              euro
+          </p>
+      </div>
         <div class="col col-qty layout-inline" id="man">
           <a href="#" class="qty qty-minus">-</a>
             <input type="numeric" value="0" />
@@ -104,7 +117,11 @@
         <div class="col col-price col-numeric align-center " id="price">
           <p>23.99</p>
         </div>
-
+        <div class="col col-vat ">
+          <p>
+              euro
+          </p>
+      </div>
         <div class="col col-qty  layout-inline" id="pen">
           <a href="#" class="qty qty-minus ">-</a>
             <input type="numeric" value="0" />
@@ -124,22 +141,25 @@
           <p>Book</p>
         </div>
         
-        <div class="col col-price col-numeric align-center " id="price">
+        <div class="col col-price col-numeric align-left " id="price">
           <p>100.00</p>
         </div>
-
+        <div class="col col-vat ">
+          <p>
+              euro
+          </p>
+      </div>
         <div class="col col-qty layout-inline" id="bok">
           <a href="#" class="qty qty-minus">-</a>
             <input type="numeric" value="0" />
           <a href="#" class="qty qty-plus">+</a>
         </div>
 
-         <div class="col col-total col-numeric align-center" id="pro-total">  
+         <div class="col  col-numeric align-center" id="pro-total">  
            <p>0.00</p>
          </div>         
       </div>
   <!-- product ends in here -->
-      
        <div class="tf">
          
          
@@ -147,7 +167,7 @@
            <div class="col col-qty layout-inline">
              <p>Total</p>
            </div>
-           <div class="col col-total col-numeric align-center">
+           <div class="col col-numeric align-center">
            <p id="over-all">0.00</p>
           </div>
          </div>

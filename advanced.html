@@ -1,190 +1,217 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <title>shopping cart</title>
+    <meta name="description" content="shopping chart for telegram">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
   </head>
   <body>
-    <div class=" container-md">
-      <div class="cart transition is-open">
+    <div class=" container">
+      
+  
+    <div class="cart transition is-open">
         <a href="#" class="btn btn-update">Buy</a>
         <div class="table">
       <!-- product header -->
-        <div class="layout-inline row th">
-          <div class="col-sm col-pro">Product</div>
-          <div class="col-sm col-price align-center ">
-          Price
-          </div>
-          <div class="col-sm align-center align-center">Currency</div>
-          <div class="col-sm col-qty align-center">QTY</div>
-          <div class="col-sm align-center">Total</div>
+      <div class="layout-inline row th">
+        <div class="col col-pro">Product</div>
+        <div class="col col-price align-center "> 
+           Price
+        </div>
+          <div class="col col-vat ">Currency</div>
+          <div class="col col-qty align-center">QTY</div>
+          <div class="col align-center">Total</div>
         </div>
       <!-- product start in -->
-      
-    <div class="layout-inline row cat">
-    <div class="col-sm col-pro layout-inline">
-    <p>
-    fruit
-    </P>
+        <!-- category start -->
+        <div class="layout-inline row cat">
+    <div class="col col-pro layout-inline">
+        <p>
+            fruit
+        </P>
     </div>
-    </div>
-    
-    <div class="layout-inline row">
-          <div class="col-sm col-pro layout-inline">
-             <p>
-    banana
-    </p>
-          </div>
-          <div class="col-sm col-price col-numeric align-center " id="price">
-            <p>
-    2
-    </p>
-          </div>
-    <div class="col-sm col-vat align-center">
-      <p>
-      cigaret
-          </p>
-          </div>
-          <div class="col-sm col-qty layout-inline" id=" ban">
-            <a href="#" class="qty qty-minus">-</a>
-              <input type="numeric" value="0" />
-            <a href="#" class="qty qty-plus">+</a>
-          </div>
-          <div class="col-sm col-total col-numeric align-center" id="pro-total">
-          <p> 0.00</p>
-          </div>
-     </div>
-    
-    <div class="layout-inline row">
-          <div class="col-sm col-pro layout-inline">
-             <p>
-    orange
-    </p>
-          </div>
-          <div class="col-sm col-price col-numeric align-center " id="price">
-            <p>
-    1
-    </p>
-          </div>
-    <div class="col-sm col-vat align-center">
-      <p>
-      euro
-          </p>
-          </div>
-          <div class="col-sm col-qty layout-inline" id=" org">
-            <a href="#" class="qty qty-minus">-</a>
-              <input type="numeric" value="0" />
-            <a href="#" class="qty qty-plus">+</a>
-          </div>
-          <div class="col-sm col-total col-numeric align-center" id="pro-total">
-          <p> 0.00</p>
-          </div>
-     </div>
-    
-    <div class="layout-inline row">
-          <div class="col-sm col-pro layout-inline">
-             <p>
-    Mango
-    </p>
-          </div>
-          <div class="col-sm col-price col-numeric align-center " id="price">
-            <p>
-    3
-    </p>
-          </div>
-    <div class="col-sm col-vat align-center">
-      <p>
-      banana
-          </p>
-          </div>
-          <div class="col-sm col-qty layout-inline" id=" man">
-            <a href="#" class="qty qty-minus">-</a>
-              <input type="numeric" value="0" />
-            <a href="#" class="qty qty-plus">+</a>
-          </div>
-          <div class="col-sm col-total col-numeric align-center" id="pro-total">
-          <p> 0.00</p>
-          </div>
-     </div>
-    
-    <div class="layout-inline row cat">
-    <div class="col-sm col-pro layout-inline">
-    <p>
-    stationery 
-    </P>
-    </div>
-    </div>
-    
-    <div class="layout-inline row">
-          <div class="col-sm col-pro layout-inline">
-             <p>
-    book
-    </p>
-          </div>
-          <div class="col-sm col-price col-numeric align-center " id="price">
-            <p>
-    5
-    </p>
-          </div>
-    <div class="col-sm col-vat align-center">
-      <p>
-      Mango
-          </p>
-          </div>
-          <div class="col-sm col-qty layout-inline" id=" bok">
-            <a href="#" class="qty qty-minus">-</a>
-              <input type="numeric" value="0" />
-            <a href="#" class="qty qty-plus">+</a>
-          </div>
-          <div class="col-sm col-total col-numeric align-center" id="pro-total">
-          <p> 0.00</p>
-          </div>
-     </div>
-    
-    <div class="layout-inline row">
-          <div class="col-sm col-pro layout-inline">
-             <p>
-    pen 
-    </p>
-          </div>
-          <div class="col-sm col-price col-numeric align-center " id="price">
-            <p>
-    1
-    </p>
-          </div>
-    <div class="col-sm col-vat align-center">
-      <p>
-      usd
-          </p>
-          </div>
-          <div class="col-sm col-qty layout-inline" id=" pen">
-            <a href="#" class="qty qty-minus">-</a>
-              <input type="numeric" value="0" />
-            <a href="#" class="qty qty-plus">+</a>
-          </div>
-          <div class="col-sm col-total col-numeric align-center" id="pro-total">
-          <p> 0.00</p>
-          </div>
-     </div>
-    
-     <!-- product ends in here -->
-       <div class="tf">
-          <div class="row layout-inline ">
-           <div class="col-sm align-center">
-             <p>Total</p>
-           </div>
-           <div class="col-sm col-numeric align-center">
-           <p id="over-all">0.00</p>
-          </div>
-         </div>
-       </div>
-       </div>
-    <a href="#" class="btn btn-update">Buy</a>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
-  </body>
-</html>
+</div>
 
+<div class="layout-inline row">
+
+ 
+
+
+    <div class="col col-pro layout-inline">
+       <img src=scr/Banana.webp alt="no image" />
+       <p>
+           banana
+       </p>
+    </div>
+<div class="col col-price col-numeric align-left " id="price">
+    <p>
+        2
+    </p>
+</div>
+<div class="col col-vat ">
+    <p>
+        cigaret
+    </p>
+</div>
+<div class="col col-qty layout-inline" id=ban>
+    <a href="#" class="qty qty-minus">-</a>
+      <input type="numeric" value="0" />
+    <a href="#" class="qty qty-plus">+</a>
+</div>
+  <div class="col col-total col-numeric align-center" id="pro-total">
+    <p> 0.00</p>
+  </div>
+</div>
+    
+ 
+
+<div class="layout-inline row row-bg2">
+
+
+    <div class="col col-pro layout-inline">
+       <img src=scr/orange.webp alt="no image" />
+       <p>
+           orange
+       </p>
+    </div>
+<div class="col col-price col-numeric align-left " id="price">
+    <p>
+        1
+    </p>
+</div>
+<div class="col col-vat ">
+    <p>
+        euro
+    </p>
+</div>
+<div class="col col-qty layout-inline" id=org>
+    <a href="#" class="qty qty-minus">-</a>
+      <input type="numeric" value="0" />
+    <a href="#" class="qty qty-plus">+</a>
+</div>
+  <div class="col col-total col-numeric align-center" id="pro-total">
+    <p> 0.00</p>
+  </div>
+</div>
+    
+<div class="layout-inline row">
+
+ 
+
+
+    <div class="col col-pro layout-inline">
+       <img src=scr/mango.webp alt="no image" />
+       <p>
+           Mango
+       </p>
+    </div>
+<div class="col col-price col-numeric align-left " id="price">
+    <p>
+        3
+    </p>
+</div>
+<div class="col col-vat ">
+    <p>
+        banana
+    </p>
+</div>
+<div class="col col-qty layout-inline" id=man>
+    <a href="#" class="qty qty-minus">-</a>
+      <input type="numeric" value="0" />
+    <a href="#" class="qty qty-plus">+</a>
+</div>
+  <div class="col col-total col-numeric align-center" id="pro-total">
+    <p> 0.00</p>
+  </div>
+</div>
+    <div class="layout-inline row cat">
+    <div class="col col-pro layout-inline">
+        <p>
+            stationery 
+        </P>
+    </div>
+</div>
+
+ 
+
+<div class="layout-inline row row-bg2">
+
+
+    <div class="col col-pro layout-inline">
+       <img src=scr/books.webp  alt="no image" />
+       <p>
+           book
+       </p>
+    </div>
+<div class="col col-price col-numeric align-left " id="price">
+    <p>
+        5
+    </p>
+</div>
+<div class="col col-vat ">
+    <p>
+        Mango
+    </p>
+</div>
+<div class="col col-qty layout-inline" id=bok>
+    <a href="#" class="qty qty-minus">-</a>
+      <input type="numeric" value="0" />
+    <a href="#" class="qty qty-plus">+</a>
+</div>
+  <div class="col col-total col-numeric align-center" id="pro-total">
+    <p> 0.00</p>
+  </div>
+</div>
+    
+<div class="layout-inline row">
+
+ 
+
+
+    <div class="col col-pro layout-inline">
+       <img src=scr/pen.webp alt="no image" />
+       <p>
+           pen 
+       </p>
+    </div>
+<div class="col col-price col-numeric align-left " id="price">
+    <p>
+        1
+    </p>
+</div>
+<div class="col col-vat ">
+    <p>
+        usd
+    </p>
+</div>
+<div class="col col-qty layout-inline" id=pen>
+    <a href="#" class="qty qty-minus">-</a>
+      <input type="numeric" value="0" />
+    <a href="#" class="qty qty-plus">+</a>
+</div>
+  <div class="col col-total col-numeric align-center" id="pro-total">
+    <p> 0.00</p>
+  </div>
+</div>
+    
+      <div class="tf">
+        <div class="row layout-inline ">
+         <div class="col col-qty layout-inline">
+           <p>Total</p>
+         </div>
+         <div class="col col-numeric align-center">
+         <p id="over-all">0.00</p>
+        </div>
+       </div>
+     </div>         
+</div>
+  
+  <a href="#" class="btn btn-update">Buy</a>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
