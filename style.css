@@ -51,7 +51,7 @@ a {
 }
 
 .container {
-    max-width: 75em;
+    max-width: 755px;
     width: 95%;
     margin: 40px auto;
     overflow: hidden;
@@ -106,15 +106,13 @@ a {
 .tf {
     background: #f34d35;
     text-transform: uppercase;
-    text-align: right;
     font-size: 1.2em;
 }
 
 .cat {
     background: #f3e635;
-    color: rgb(5 5 5);
+    color: rgb(0 0 0);
     text-transform: uppercase;
-    font-weight: bold;
     font-size: 1.2em;
 }
 
@@ -129,7 +127,7 @@ a {
 }
 
 .col-pro {
-    width: 44%;
+    width: 35%;
 }
 
 .col-pro > * {
@@ -138,7 +136,7 @@ a {
 
 .col-qty {
     text-align: center;
-    width: 17%;
+    width: 30%;
 }
 
 .col-numeric p {
@@ -147,10 +145,6 @@ a {
 
 .col-total p {
     color: #12c8b1;
-}
-
-.tf .col {
-    width: 20%;
 }
 
 .row > div {
@@ -177,7 +171,7 @@ a {
 }
 
 .col-qty > input {
-    max-width: 2.6em;
+    max-width: 4em;
 }
 
 a.qty {
@@ -228,11 +222,49 @@ a.qty:hover {
     }
 
     .col-qty {
-        width: 22%;
+        width: 30%;
     }
 
     img {
-        max-width: 100%;
+        max-width: 50%;
+        margin-bottom: 1em;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .col-pro {
+        width: 100%;
+    }
+
+    .tf .col-total {
+        width: 100%;
+    }
+
+    .col-qty {
+        width: 100%;
+    }
+
+    img {
+        max-width: 50%;
+        margin-bottom: 1em;
+    }
+}
+
+@media screen and (max-width: 240px) {
+    .col-pro {
+        width: 100%;
+    }
+
+    .col-qty {
+        width: 100%;
+    }
+
+    .tf .col-total {
+        width: 100%;
+    }
+
+    img {
+        max-width: 50%;
         margin-bottom: 1em;
     }
 }
