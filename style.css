@@ -246,6 +246,10 @@ a.qty:hover {
         width: 100%;
     }
 
+    .col-price {
+        margin-right: 0.5em;
+    }
+
     img {
         max-width: 30%;
         margin-bottom: 1em;
