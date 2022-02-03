@@ -236,7 +236,7 @@ a.qty:hover {
 
 @media screen and (max-width: 575px) {
     .col-pro {
-        width: 100%;
+        width: 60%;
     }
 
     .tf .col-total {
@@ -253,7 +253,7 @@ a.qty:hover {
     }
 }
 
-@media screen and (max-width: 283px) {
+@media screen and (max-width: 400px) {
     .col-pro {
         width: 100%;
     }
