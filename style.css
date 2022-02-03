@@ -276,11 +276,15 @@ a.qty:hover {
     }
 
     img {
-        max-width: 50%;
+        max-width: 25%;
         margin-bottom: 1em;
     }
 
+    .col-pro > p {
+        font-size: 2.5em;
+    }
+
     .col-qty > input {
-        margin: 1em 4em;
+        margin: 1em 2em;
     }
 }
