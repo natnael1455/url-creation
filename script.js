@@ -1,7 +1,7 @@
 var pay_load = {};
 // url creating function
 function create_url() {
-    var url = 'https://t.me/kamata_staging_bot?start=';
+    var url = 'https://t.me/kamata_test_bot?start=';
     var pay_loads = 'o_x';
     var i = 0;
     for (let key in pay_load) {
