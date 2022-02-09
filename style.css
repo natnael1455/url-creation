@@ -62,7 +62,6 @@ a {
 }
 
 .cart {
-    margin: 2.5em;
     overflow: hidden;
 }
 
@@ -210,69 +209,39 @@ a.qty:hover {
     transition: all 0.3s ease-in-out;
 }
 
-@media screen and (max-width: 755px) {
+@media screen and (max-width: 781px) {
     .container {
-        width: 98%;
-    }
-
-    .col-pro {
-        width: 33%;
-    }
-
-    .col-qty {
-        width: 39%;
-    }
-
-    img {
-        max-width: 50%;
-        margin-bottom: 1em;
-    }
-
-    .col-qty > input {
-        margin: 1em 0.75em;
-    }
-}
-
-@media screen and (max-width: 575px) {
-    .col-pro {
-        width: 60%;
-    }
-
-    .tf .col-total {
         width: 100%;
     }
 
-    .col-qty {
+    .th {
+        display: none;
+    }
+
+    .col-pro {
         width: 100%;
+        text-align: left;
     }
 
     .col-price {
-        margin-right: 0.5em;
-    }
-
-    img {
-        max-width: 30%;
-        margin-bottom: 1em;
-    }
-
-    .col-qty > input {
-        margin: 1em 2em;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .col-pro {
-        width: 100%;
-        text-align: left;
+        width: 19%;
+        text-align: right;
     }
 
     .col-vat {
-        width: 100%;
+        width: 49%;
         text-align: left;
     }
 
     .col-qty {
+        width: 50%;
+        margin-left: 1.5em;
+    }
+
+    .col-total {
         width: 100%;
+        text-align: left;
+        margin-left: 3.5em;
     }
 
     .tf .col-total {
@@ -290,5 +259,27 @@ a.qty:hover {
 
     .col-qty > input {
         margin: 1em 2em;
+    }
+}
+
+@media screen and (max-width: 493px) {
+    .col-qty {
+        width: 70%;
+        margin-left: 1.5em;
+    }
+
+    .col-total {
+        margin-left: 3em;
+    }
+}
+
+@media screen and (max-width: 339px) {
+    .col-qty {
+        width: 80%;
+        margin-left: 0.25em;
+    }
+
+    .col-total {
+        margin-left: 2em;
     }
 }
