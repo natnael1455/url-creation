@@ -1,4 +1,4 @@
-name,category,sub_category,amount,unit_price,currency,short_code,description,img
+Name,category,sub_category,amount,Unit price,Currency,Short code,Description,URL / image
 banana,fruit,,20,2,cigaret,ban,yellow fruit,scr/Banana.webp
 orange,fruit,,30,1,euro,org,round fruit,scr/orange.webp
 Mango,fruit,,10,3,banana,man,tropical fruit,scr/mango.webp

@@ -10,39 +10,32 @@
   </head>
   <body>
     <div class=" container">
-      
-  
-    <div class="cart transition is-open">
-        <a href="#" class="btn btn-update">Buy</a>
         <div class="table">
-      <!-- product header -->
-      <div class="layout-inline row th">
-        <div class="col col-pro">Product</div>
-        <div class="col col-price align-center "> 
-           Price
-        </div>
+        <!-- product header -->
+        <div class="layout-inline row th">
+          <div class="col col-pro">Product</div>
+          <div class="col col-price align-center "> 
+             Price
+          </div>
           <div class="col col-vat ">Currency</div>
           <div class="col col-qty align-center">QTY</div>
           <div class="col align-center">Total</div>
         </div>
-      <!-- product start in -->
-        <!-- category start -->
-        {{category|safe}}
-      <div class="tf">
-        <div class="row layout-inline ">
-         <div class="col col-qty layout-inline">
-           <p>Total</p>
-         </div>
-         <div class="col col-numeric align-center">
-         <p id="over-all">0.00</p>
+        <!-- product start in -->
+          {{category|safe}}
+        <div class="tf">
+          <div class="row layout-inline ">
+            <div class="col col-qty layout-inline">
+              <p>Total</p>
+            </div>
+            <div class="col col-numeric align-center">
+              <p id="over-all">0.00</p>
+            </div>
         </div>
-       </div>
-     </div>         
-</div>
-  
+        </div>         
+    </div>
+        
   <a href="#" class="btn btn-update">Buy</a>
-
-  </div>
   <script src="script.js"></script>
 </body>
 </html>
