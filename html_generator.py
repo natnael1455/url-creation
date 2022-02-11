@@ -1,5 +1,11 @@
-import pandas as pd
+import csv
+import sys
+from itertools import groupby
+
+import click
 from jinja2 import Environment, PackageLoader, select_autoescape
+
+sys.tracebacklimit = 0
 
 
 def product_section(index, row):
@@ -13,11 +19,11 @@ def product_section(index, row):
         row1 = True
     else:
         row2 = True
-    product_name = row["name"]
-    unit_price = row["unit_price"]
-    currency = row["currency"]
-    code = row["short_code"]
-    img = row["img"]
+    product_name = row["Name"]
+    unit_price = row["Unit price"]
+    currency = row["Currency"]
+    code = row["Short code"]
+    img = row["URL / image"]
 
     return template.render(
         row1=row1,
@@ -30,34 +36,110 @@ def product_section(index, row):
     )
 
 
-def category_section(key, category_data):
+def head_check(csvreader):
+    headercheck = [
+        "Name",
+        "category",
+        "Unit price",
+        "Currency",
+        "Short code",
+        "Description",
+        "URL / image",
+    ]
+    header = []
+    header = next(csvreader)
+    if set(headercheck).issubset(set(header)):
+        click.echo("header muches the format")
+    else:
+        raise Exception("header of the csv file does not match the format")
+    return header
 
+
+def csv_body(header, file_csv):
+    people_list = []
+    headers_list = []
+
+    index = 0
+    for line in file_csv:
+
+        if index > 0:
+            people_dict = {}
+            for idx, elem in enumerate(headers_list):
+                people_dict[elem] = line[idx]
+            people_list.append(people_dict)
+        else:
+            headers_list = header
+        index += 1
+    return people_list
+
+
+def category_section(key, category_data):
     env1 = Environment(
         loader=PackageLoader("html_generator"), autoescape=select_autoescape()
     )
     template = env1.get_template("category.html")
 
     pro_section = ""
-    for index, row in category_data.iterrows():
+    index = 0
+    for row in category_data:
         pro_section = pro_section + product_section(index, row)
+        index += 1
     return template.render(CategoryName=key, item=pro_section)
 
 
-env = Environment(
-    loader=PackageLoader("html_generator"), autoescape=select_autoescape()
+def key_func(key):
+    return key["category"]
+
+
+@click.option(
+    "--csv_file",
+    default="product.csv",
+    help="The csv file from where the html file will be generated defult is product.csv",
 )
-template = env.get_template("index.html")
+@click.option(
+    "--html_file",
+    default="advanced.html",
+    help="The name of html that will be generated defult is advanced.html",
+)
+@click.option(
+    "--categories",
+    default=False,
+    help="if True with category row and if False with out category row defult is False",
+)
+@click.command()
+def generate(csv_file, html_file, categories):
+    click.echo("trying to open " + csv_file)
+    try:
+        with open(csv_file) as file_csv:
+            click.echo(csv_file + " is opened")
+            csvreader = csv.reader(file_csv)
+            header = head_check(csvreader)
+            csv_data = csv_body(header, csvreader)
+            env = Environment(
+                loader=PackageLoader("html_generator"), autoescape=select_autoescape()
+            )
+            template = env.get_template("index.html")
+            click.echo("creating " + html_file)
+            with open(html_file, "w") as htmls_file:
+                middle = ""
+                if categories:
+                    csv_data = sorted(csv_data, key=key_func)
 
-df = pd.read_csv("product.csv")
+                    for key, value in groupby(csv_data, key_func):
+                        middle = middle + category_section(key, value)
+                else:
+                    key = 0
+                    for value in csv_data:
+                        middle = middle + product_section(key, value)
+                        key += 1
+                htmls_file.write(template.render(category=middle))
+                click.echo(html_file + " created")
+                htmls_file.close()
+    except FileNotFoundError:
+        click.echo(csv_file + " not found")
+    except Exception as ex:
+        click.echo(ex)
 
-grouped_df = df.groupby("category")
 
-
-with open("advanced.html", "w") as html_file:
-    middle = ""
-    for key, _item in grouped_df:
-        category_data = grouped_df.get_group(key)
-        middle = middle + category_section(key, category_data)
-
-    html_file.write(template.render(category=middle))
-    html_file.close()
+if __name__ == "__main__":
+    generate()
