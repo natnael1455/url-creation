@@ -1,7 +1,7 @@
 let pay_load = {};
 // url creating function
 const create_url = () => {
-    let url = 'https://t.me/kamata_test_bot?start=';
+    let url = 'https://t.me/kamata_staging_bot?start=';
     let pay_loads = 'o_x';
     let i = 0;
     for (let key in pay_load) {
