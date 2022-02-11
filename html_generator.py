@@ -119,7 +119,7 @@ def generate(csv_file, html_file, categories):
                 loader=PackageLoader("html_generator"), autoescape=select_autoescape()
             )
             template = env.get_template("index.html")
-            click.echo("cretating " + html_file)
+            click.echo("creating " + html_file)
             with open(html_file, "w") as htmls_file:
                 middle = ""
                 if categories:
