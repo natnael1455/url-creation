@@ -23,8 +23,7 @@ def product_section(index, row):
     unit_price = row["Unit price"]
     currency = row["Currency"]
     code = row["Short code"]
-    img = row["URL / image"]
-
+    img = "static/" + row["URL / image"]
     return template.render(
         row1=row1,
         row2=row2,
@@ -78,7 +77,6 @@ def category_section(key, category_data):
         loader=PackageLoader("html_generator"), autoescape=select_autoescape()
     )
     template = env1.get_template("category.html")
-
     pro_section = ""
     index = 0
     for row in category_data:
@@ -120,11 +118,10 @@ def generate(csv_file, html_file, categories):
             )
             template = env.get_template("index.html")
             click.echo("creating " + html_file)
-            with open(html_file, "w") as htmls_file:
+            with open("flask/templates/" + html_file, "w") as htmls_file:
                 middle = ""
                 if categories:
                     csv_data = sorted(csv_data, key=key_func)
-
                     for key, value in groupby(csv_data, key_func):
                         middle = middle + category_section(key, value)
                 else:

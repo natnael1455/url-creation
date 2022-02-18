@@ -38,7 +38,7 @@ $('a.qty-minus').on('click', (event) => {
     let parent = $this.closest('div').attr('id');
     let price = parseFloat($this.parent().parent().children('#price').text());
     let pro_total = $this.parent().parent().children('#pro-total');
-    let $input = $this.closest('div').find('input');
+    let $input = $this.closest('div').find('#qty');
     let value = parseInt($input.val());
     let over_all = $('#over-all');
     let over_all_total = parseFloat(over_all.text());
@@ -63,7 +63,7 @@ $('a.qty-plus').on('click', (event) => {
     let pro_total = $this.parent().parent().children('#pro-total');
     let over_all = $('#over-all');
     let over_all_total = parseFloat(over_all.text());
-    let $input = $this.closest('div').find('input');
+    let $input = $this.closest('div').find('#qty');
     let value = parseInt($input.val());
     if (value < 100) {
         value = value + 1;
