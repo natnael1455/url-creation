@@ -1,6 +1,5 @@
 from os import environ
 
-import click
 from flask import Flask, redirect, render_template, request
 
 app = Flask(__name__)
@@ -23,8 +22,7 @@ def payload_creator(product):
 
 def url_creator(product):
     payload = payload_creator(product)
-    uri = "https://t.me/kamata_test_bot?start=o_x"
-    click.echo(environ.get("url"))
+    uri = environ.get("uri")
     if payload == "error":
         url = "error"
     else:
