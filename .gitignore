@@ -2,3 +2,4 @@
 node_modules
 .husky
 __pycache__
+.parcel-chache
