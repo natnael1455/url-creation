@@ -84,7 +84,7 @@ $('a.btn-update').on('click', () => {
 });
 
 // RESTRICT INPUTS TO NUMBERS ONLY WITH A MIN OF 0 AND A MAX 100
-$('#qty').on('blur', (event) => {
+$('input').on('blur', (event) => {
     event.preventDefault();
     let input = $(event.currentTarget);
     let value = parseInt($(event.currentTarget).val());
