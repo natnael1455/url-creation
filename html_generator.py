@@ -108,7 +108,7 @@ def key_func(key):
 def generate(csv_file, html_file, categories):
     click.echo("trying to open " + csv_file)
     try:
-        with open(csv_file) as file_csv:
+        with open("input/" + csv_file) as file_csv:
             click.echo(csv_file + " is opened")
             csvreader = csv.reader(file_csv)
             header = head_check(csvreader)
@@ -118,7 +118,7 @@ def generate(csv_file, html_file, categories):
             )
             template = env.get_template("index.html")
             click.echo("creating " + html_file)
-            with open("flask/templates/" + html_file, "w") as htmls_file:
+            with open("api/templates/" + html_file, "w") as htmls_file:
                 middle = ""
                 if categories:
                     csv_data = sorted(csv_data, key=key_func)
