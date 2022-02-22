@@ -1,7 +1,9 @@
 name: deploy website
-on: [push , pull_request]
-branches:
-      - master
+on: 
+  pull_request:
+    branches:
+      -'master' 
+      - '!natis_branch'
 jobs:
   deploy:
     runs-on: ubuntu-latest
