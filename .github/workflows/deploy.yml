@@ -4,10 +4,6 @@ on:
     branches:
       -'master' 
       - '!natis_branch'
-  push:
-    branches:
-       -'master' 
-      - '!natis_branch'
 jobs:
   deploy:
     runs-on: ubuntu-latest
