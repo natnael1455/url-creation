@@ -1,6 +1,8 @@
 name: building website
 on: 
   push:
+    path:
+      - 'api/**'
     branches:
       - 'natis_branch'
 jobs:
