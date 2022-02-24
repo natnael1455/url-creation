@@ -3,8 +3,8 @@ on:
   push:
     path:
       - 'api/**'
-      branches:
-        - 'master'
+    branches:
+      - 'master'
 jobs:
   deploy:
     runs-on: ubuntu-latest
