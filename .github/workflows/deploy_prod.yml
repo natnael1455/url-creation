@@ -1,7 +1,7 @@
 name: deploy website
 on: 
   push:
-    path:
+    paths:
       - 'api/**'
     branches:
       - 'master'
