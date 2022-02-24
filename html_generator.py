@@ -1,3 +1,4 @@
+# noqa: WPS202
 import csv
 import sys
 from itertools import groupby
@@ -69,6 +70,7 @@ def csv_body(header, file_csv):
         else:
             headers_list = header
         index += 1
+    click.echo("dictionary's body created")
     return people_list
 
 
@@ -78,10 +80,8 @@ def category_section(key, category_data):
     )
     template = env1.get_template("category.html")
     pro_section = ""
-    index = 0
-    for row in category_data:
+    for index, row in enumerate(category_data):
         pro_section = pro_section + product_section(index, row)
-        index += 1
     return template.render(CategoryName=key, item=pro_section)
 
 
@@ -89,10 +89,39 @@ def key_func(key):
     return key["category"]
 
 
+def read_csv(file):
+    with open(file) as file_csv:
+        click.echo(file + " is opened")
+        csvreader = csv.reader(file_csv)
+        header = head_check(csvreader)
+        return csv_body(header, csvreader)
+
+
+def create_html(file, data, category):
+    click.echo("creating " + file)
+    env = Environment(
+        loader=PackageLoader("html_generator"), autoescape=select_autoescape()
+    )
+    template = env.get_template("index.html")
+    with open("api/templates/" + file, "w") as htmls_file:
+        middle = ""
+        if category:
+            csv_data = sorted(data, key=key_func)
+            for key, value in groupby(csv_data, key_func):
+                middle = middle + category_section(key, value)
+        else:
+            for index, value in enumerate(data):
+                middle = middle + product_section(index, value)
+        htmls_file.write(template.render(category=middle))
+        click.echo(file + " created")
+        htmls_file.close()
+
+
 @click.option(
     "--csv_file",
     default="product.csv",
-    help="The csv file from where the html file will be generated defult is product.csv",
+    help="""The csv file from where the html file
+    will be generated defult is product.csv""",
 )
 @click.option(
     "--html_file",
@@ -102,38 +131,16 @@ def key_func(key):
 @click.option(
     "--categories",
     default=False,
-    help="if True with category row and if False with out category row defult is False",
+    help="""if True with category row
+            and if False with out category row defult is False""",
 )
 @click.command()
 def generate(csv_file, html_file, categories):
     click.echo("trying to open " + csv_file)
     try:
-        with open("input/" + csv_file) as file_csv:
-            click.echo(csv_file + " is opened")
-            csvreader = csv.reader(file_csv)
-            header = head_check(csvreader)
-            csv_data = csv_body(header, csvreader)
-            env = Environment(
-                loader=PackageLoader("html_generator"), autoescape=select_autoescape()
-            )
-            template = env.get_template("index.html")
-            click.echo("creating " + html_file)
-            with open("api/templates/" + html_file, "w") as htmls_file:
-                middle = ""
-                if categories:
-                    csv_data = sorted(csv_data, key=key_func)
-                    for key, value in groupby(csv_data, key_func):
-                        middle = middle + category_section(key, value)
-                else:
-                    key = 0
-                    for value in csv_data:
-                        middle = middle + product_section(key, value)
-                        key += 1
-                htmls_file.write(template.render(category=middle))
-                click.echo(html_file + " created")
-                htmls_file.close()
+        create_html(html_file, read_csv("input/" + csv_file), categories)
     except FileNotFoundError:
-        click.echo(csv_file + " not found")
+        click.echo(csv_file + " not found in input directory")
     except Exception as ex:
         click.echo(ex)
 
