@@ -1,7 +1,7 @@
 name: building website
 on: 
   push:
-    path:
+    paths:
       - 'api/**'
     branches:
       - 'natis_branch'
