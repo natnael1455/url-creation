@@ -19,8 +19,8 @@ p {
     color: rgb(0 0 0 100%);
 }
 
-input {
-    border: 0.3em solid #bbc3c6;
+#qty {
+    border: 0.1em solid #bbc3c6;
     padding: 0.5em 0.3em;
     font-size: 1.4em;
     color: rgb(0 0 0 100%);
@@ -129,7 +129,7 @@ a {
 }
 
 .row-bg2 {
-    background: #f7f7f7;
+    background: #e9e9e9;
 }
 
 .col-qty > * {
@@ -140,6 +140,7 @@ a {
     width: 48px;
     height: 48px;
     margin: 0 1.5em;
+    border-radius: 25%;
 }
 
 a.qty {
