@@ -3,8 +3,8 @@ on:
   push:
     path:
       - 'api/**'
-    branches:
-      - 'natis_branch'
+      branches:
+        - 'natis_branch'
 jobs:
   deploy:
     runs-on: ubuntu-latest
