@@ -22,6 +22,7 @@ def payload_creator(product):
 
 def url_creator(product):
     payload = payload_creator(product)
+    print(payload)
     uri = environ.get("uri")
     if payload == "error":
         url = "error"

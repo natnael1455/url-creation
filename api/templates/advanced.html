@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Telegram chart</title>
+    <title>shopping cart</title>
     <meta name="description" content="shopping chart for telegram">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="static/style.css">
@@ -9,7 +9,7 @@
     
   </head>
   <body>
-  <form method="post" target="_blank" >
+  <form method="post" target="_blank" onkeydown="return event.key != 'Enter';">
     <div class=" container">
       <div class="table">
         <!-- product header -->
@@ -23,15 +23,8 @@
             <div class="col align-center">Total</div>
           </div>
         <!-- product start in -->
-          <div class="layout-inline row cat">
-    <div class="col col-pro layout-inline">
-        <p>
-            fruit
-        </P>
-    </div>
-</div>
-
-<div class="layout-inline row">
+          
+<div class="layout-inline row item">
 
  
 
@@ -54,7 +47,7 @@
 </div>
 <div class="col col-qty layout-inline" id=org>
     <a href="#" class="qty qty-minus">-</a>
-        <input type="numeric" name="org" id="qty" value="0" />
+        <input type="numeric" class ="qty" name="org" id="qty" value="0" />
     <a href="#" class="qty qty-plus">+</a>
 </div>
   <div class="col col-total col-numeric align-center" id="pro-total">
@@ -64,7 +57,7 @@
     
  
 
-<div class="layout-inline row row-bg2">
+<div class="layout-inline row row-bg2 item">
 
 
     <div class="col col-pro layout-inline">
@@ -85,22 +78,15 @@
 </div>
 <div class="col col-qty layout-inline" id=man>
     <a href="#" class="qty qty-minus">-</a>
-        <input type="numeric" name="man" id="qty" value="0" />
+        <input type="numeric" class ="qty" name="man" id="qty" value="0" />
     <a href="#" class="qty qty-plus">+</a>
 </div>
   <div class="col col-total col-numeric align-center" id="pro-total">
     <p> 0.00</p>
   </div>
 </div>
-    <div class="layout-inline row cat">
-    <div class="col col-pro layout-inline">
-        <p>
-            stationery 
-        </P>
-    </div>
-</div>
-
-<div class="layout-inline row">
+    
+<div class="layout-inline row item">
 
  
 
@@ -118,12 +104,12 @@
 </div>
 <div class="col col-vat ">
     <p>
-        Mangos
+        Mango
     </p>
 </div>
 <div class="col col-qty layout-inline" id=bok>
     <a href="#" class="qty qty-minus">-</a>
-        <input type="numeric" name="bok" id="qty" value="0" />
+        <input type="numeric" class ="qty" name="bok" id="qty" value="0" />
     <a href="#" class="qty qty-plus">+</a>
 </div>
   <div class="col col-total col-numeric align-center" id="pro-total">
@@ -133,7 +119,7 @@
     
  
 
-<div class="layout-inline row row-bg2">
+<div class="layout-inline row row-bg2 item">
 
 
     <div class="col col-pro layout-inline">
@@ -154,7 +140,7 @@
 </div>
 <div class="col col-qty layout-inline" id=pen>
     <a href="#" class="qty qty-minus">-</a>
-        <input type="numeric" name="pen" id="qty" value="0" />
+        <input type="numeric" class ="qty" name="pen" id="qty" value="0" />
     <a href="#" class="qty qty-plus">+</a>
 </div>
   <div class="col col-total col-numeric align-center" id="pro-total">

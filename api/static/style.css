@@ -159,6 +159,11 @@ a.qty:hover {
     background: #3b9ac6;
 }
 
+.item:hover {
+    background: #0d0d0e;
+    color: #fff;
+}
+
 .btn {
     padding: 10px 30px;
     border-radius: 0.3em;
