@@ -2,7 +2,7 @@ name: building website
 on: 
   push:
     paths:
-      - 'api/**'
+      - 'web/**'
     branches:
       - 'natis_branch'
 jobs:
@@ -16,5 +16,5 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }} #Optional 
           vercel-org-id: ${{ secrets.ORG_ID}}  #Required
           vercel-project-id: ${{ secrets.PROJECT_ID}} #Required 
-          working-directory: ./api
+          working-directory: ./web
 

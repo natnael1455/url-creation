@@ -4,12 +4,11 @@
     <title>shopping cart</title>
     <meta name="description" content="shopping chart for telegram">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="static/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
   </head>
   <body>
-  <form method="post" target="_blank" onkeydown="return event.key != 'Enter';">
+  <form method="post" target="_blank" action="/api" onkeydown="()=>{return event.key != 'Enter';}">
     <div class=" container">
       <div class="table">
         <!-- product header -->
@@ -30,7 +29,7 @@
 
 
     <div class="col col-pro layout-inline">
-       <img src=static/scr/orange.webp alt="no image" />
+       <img src= scr/orange.webp alt="no image" />
        <p>
            orange
        </p>
@@ -61,7 +60,7 @@
 
 
     <div class="col col-pro layout-inline">
-       <img src=static/scr/mango.webp alt="no image" />
+       <img src=scr/mango.webp alt="no image" />
        <p>
            Mango
        </p>
@@ -92,7 +91,7 @@
 
 
     <div class="col col-pro layout-inline">
-       <img src=static/scr/books.webp  alt="no image" />
+       <img src=scr/books.webp  alt="no image" />
        <p>
            book
        </p>
@@ -123,7 +122,7 @@
 
 
     <div class="col col-pro layout-inline">
-       <img src=static/scr/pen.webp alt="no image" />
+       <img src=scr/pen.webp alt="no image" />
        <p>
            pen 
        </p>
@@ -164,6 +163,6 @@
       <input type="submit"  class="btn btn-submit" value="Order">
     </div>
   </form>
-    <script src="static/script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
