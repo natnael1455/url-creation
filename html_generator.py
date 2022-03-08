@@ -24,7 +24,7 @@ def product_section(index, row):
     unit_price = row["Unit price"]
     currency = row["Currency"]
     code = row["Short code"]
-    img = "static/" + row["URL / image"]
+    img = row["URL / image"]
     return template.render(
         row1=row1,
         row2=row2,
@@ -103,7 +103,7 @@ def create_html(file, data, category):
         loader=PackageLoader("html_generator"), autoescape=select_autoescape()
     )
     template = env.get_template("index.html")
-    with open("api/templates/" + file, "w") as htmls_file:
+    with open("web/static/" + file, "w") as htmls_file:
         middle = ""
         if category:
             csv_data = sorted(data, key=key_func)
