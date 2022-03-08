@@ -1,6 +1,6 @@
 from os import environ
 
-from flask import Flask, redirect, render_template, request
+from flask import Flask, redirect, request
 
 app = Flask(__name__)
 
@@ -22,7 +22,7 @@ def payload_creator(product):
 
 def url_creator(product):
     payload = payload_creator(product)
-    print(payload)
+
     uri = environ.get("uri")
     if payload == "error":
         url = "error"
@@ -31,14 +31,7 @@ def url_creator(product):
     return url
 
 
-@app.route("/")
-def hello():
-
-    # prints parent directory
-    return render_template("advanced.html")
-
-
-@app.route("/", methods=["POST"])
+@app.route("/api", methods=["POST"])
 def process_form_data():
     product = request.form
     if url_creator(product) == "error":
