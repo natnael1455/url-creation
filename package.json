@@ -2,7 +2,7 @@
     "name": "url-creation",
     "version": "1.0.0",
     "description": "",
-    "source": "index.html",
+    "source": "dist/index.html",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "stylelint-check": "stylelint-config-prettier-check",
