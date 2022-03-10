@@ -1,3 +1,5 @@
+import $ from './jquery1/jquery.min.js';
+
 let pay_load = {};
 // url creating function
 const create_url = () => {
