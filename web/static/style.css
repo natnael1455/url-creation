@@ -31,7 +31,6 @@ img {
     max-width: 9em;
     width: 100%;
     overflow: hidden;
-    margin-right: 1em;
 }
 
 a {
@@ -99,8 +98,11 @@ a {
 }
 
 .col {
-    padding: 1em;
     width: 12%;
+}
+
+.th > .col {
+    padding: 2em;
 }
 
 .col-pro {
@@ -146,7 +148,7 @@ a {
 a.qty {
     width: 48px;
     height: 48px;
-    line-height: 1em;
+    line-height: 1.75em;
     border-radius: 2em;
     font-size: 2.5em;
     font-weight: bold;
@@ -204,7 +206,7 @@ a.qty:hover {
 
     .col-price {
         width: 19%;
-        text-align: right;
+        text-align: left;
     }
 
     .col-vat {
@@ -214,13 +216,11 @@ a.qty:hover {
 
     .col-qty {
         width: 50%;
-        margin-left: 1.5em;
     }
 
     .col-total {
         width: 100%;
         text-align: left;
-        margin-left: 3.5em;
     }
 
     .tf > div {
@@ -229,7 +229,11 @@ a.qty:hover {
 
     img {
         max-width: 30%;
-        margin-bottom: 1em;
+    }
+
+    p {
+        margin-block-start: 0.5em;
+        margin-block-end: 0.5em;
     }
 
     .col-pro > p {
@@ -244,32 +248,20 @@ a.qty:hover {
 @media screen and (max-width: 493px) {
     .col-qty {
         width: 70%;
-        margin-left: 1.5em;
-    }
-
-    .col-total {
-        margin-left: 3em;
     }
 
     img {
         max-width: 40%;
-        margin-bottom: 1em;
     }
 }
 
 @media screen and (max-width: 339px) {
     .col-qty {
         width: 80%;
-        margin-left: 0.25em;
-    }
-
-    .col-total {
-        margin-left: 2em;
     }
 
     img {
         max-width: 45%;
-        margin-bottom: 1em;
     }
 }
 
@@ -280,6 +272,5 @@ a.qty:hover {
 
     img {
         max-width: 50%;
-        margin-bottom: 1em;
     }
 }
