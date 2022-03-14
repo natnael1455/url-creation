@@ -1,4 +1,4 @@
-import $ from './jquery1/jquery.min.js';
+import $ from './jquery/jquery.min.js';
 
 let pay_load = {};
 // url creating function
