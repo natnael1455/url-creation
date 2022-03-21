@@ -1,4 +1,4 @@
-import $ from './jquery/jquery.min.js';
+import $ from 'jquery-slim';
 
 let pay_load = {};
 // url creating function
