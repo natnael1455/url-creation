@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "baia-project",
+  "private_key_id": "baf0e69bbf862dbbb088dc86218efb429026d105",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCODTpzNWBpgu6T\nL5EHAXMHk0V7qJV2nHguiSvpmie6dhILvjuf4ArwNMFY6nD+fYbLXfVqfQi/Byoo\np45PL+nLwwetfenSuzyYFVBlgZuKDadtklLvQn59kKB7LwsaatVJPeLy7kS02KK9\ndGX15e0ZgZCwbzALnJASgfKj0OAfLfQAwapupYpPfmRmIg6+U42md0ubQUzjsBTU\nLDS8VzRcGkkXeaEoNYzL3L9jq6db7bnDUfPIVO0e60rX4eMC2qd/7q+HENSOtl8Y\nZyeXMSXisM4AIp7LRZ92jTUBV/fIVQH0J4C0op/ZwgSjjyLKK/7EZm/4L4GOPpB7\njGNUwPkRAgMBAAECggEABIZq+i5tK0FHr64+ScWH3Dn6lrhJphcRDETz/leZ/EJs\ne92oDTVMLeeVUOt7dNzrb0UnhyhTX+/2zaecRL0hTsuQPhxmp18N7KeRqYEf4v2B\nO9AjZpIlAMObnB71FObqM1CGjy/sRgFIal33zUXxOAy4vukU1ArdS0yizcl+qTmP\nrE7uu6lCvxySYx7VlhRF02J6420xijFGIdXKuj58zMKFhsJXFQLyZgPK/2MjWlfK\nk4kQ80QWAgDPNE0kVSjitdYCU4y8pNDG1zkJyh5/+4SEijwbfpY+WcDY+h5VNN+A\nUxNWJzB8Er3O8MbYdnB/FE/1RoKMc/aQ21yRGReFgQKBgQDIJ7RS7PFsnyyQWQVd\n38DNCr9k7HQG+hsfIO5wAa01o/DJOZp+XB5mi+3FrBHMOWRgfuLpdri6+I58PDV3\nugCJEPKEwQlhQzq2ZcgRXALQqx/yJpJbH30a3f6/lKq/a0CFHBhmmIOaNdXjnUwx\n3tYnKBt4Z7w6ArqSHoW2i3jUgQKBgQC1r2x6OH2Fe324WGgSTAJb+ejXKM1qSMqX\nQE5iS9TyPC5HAPs6gy/kYew68EZbrXOV0ZY6XpqTbO6Q3mo9T0dBLYfckCS/wIGn\n8ly+8yRy/0QmjOXhmB50RaN309eCLFOy70LYGr13NUjJh5gsbQHbpl/BnxRVvrGA\nXHAJYtKckQKBgHTLRlwFSzNZBoYMjCclA7oiBWD84Q+ZLe5SJxBQyiO80Cp7ZH1L\nf6nTCSIJsDD9ZGcyY3JcBpuDopE4CPMeJGXW780rXy/ULRR1+/K1QCdHU9LXUxu9\nGiFtXNOqCqC8EuAZbtufL1vzAiZZiTaok0oyCyWNUrZ/FSNikB/e7tkBAoGAScLp\nqIkstLeZJ/GEdwEy6AKC/G9NTjw1O8jYyeF9l8bFBwCn/m5qUC9NR/RqrCe0SHvp\noNLtsLLF/DzAJxn7lMOWZ/6BXPQb74JfEwsFnkZydbA4WCl5G712C10PHoM+i+PF\nYJUinLYeUeth5Y9v9KwMLkCWceVUjQd6WOUtGnECgYAb+/SUnt3OSzyCOEZhMdJj\n3etk52uSTAKss9lnM6bC9xnfHKN9mlVBbmuSVyOuSCaSC90/DhXQFgiq4xAL6/fJ\nsHuAIFZcIZhsAvuofA10t1FVHuU/12L8ClPvAk7Pg3pS1tJoK/EwS9401L4peFmF\nGDq89i49n3M9JBKLm7+g2g==\n-----END PRIVATE KEY-----\n",
+  "client_email": "baia-project@baia-project.iam.gserviceaccount.com",
+  "client_id": "106582347250703069734",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/baia-project%40baia-project.iam.gserviceaccount.com"
+}
