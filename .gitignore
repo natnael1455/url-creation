@@ -1,5 +1,6 @@
 .vercel
 node_modules
 .husky
-__pycache__
+**/__pycache__
 .parcel-chache
+cloud-generator/baia-project-fa892ac3343f.json
