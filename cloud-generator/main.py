@@ -1,21 +1,21 @@
 # noqa: WPS202
 import csv
-import sys
-from itertools import groupby
-from google.cloud import storage
-import base64
-import os
-import click
-from jinja2 import Environment, PackageLoader, select_autoescape
-from concurrent.futures import TimeoutError
 import json
-from flask import Flask, request
+import os
+import sys
+from concurrent.futures import TimeoutError
+from itertools import groupby
 
-
-app = Flask(__name__)
+import click
+from google.cloud import pubsub_v1, storage
+from jinja2 import Environment, PackageLoader, select_autoescape
 
 project_id = "baia-project"
 subscription_id = "catalogSub"
+
+subscriber = pubsub_v1.SubscriberClient()
+subscription_path = subscriber.subscription_path(project_id, subscription_id)
+
 
 sys.tracebacklimit = 0
 
@@ -25,7 +25,6 @@ def product_section(index, row):
     template = env1.get_template("item.html")
     row1 = False
     row2 = False
-    print(index)
     if (index % 2) == 0:
         row1 = True
     else:
@@ -89,7 +88,6 @@ def category_section(key, category_data):
     template = env1.get_template("category.html")
     pro_section = ""
     for index, row in enumerate(category_data):
-        print(index, "-", row)
         pro_section = pro_section + product_section(index, row)
     return template.render(CategoryName=key, item=pro_section)
 
@@ -106,15 +104,19 @@ def read_csv(file):
         return csv_body(header, csvreader)
 
 
-def create_html(file, data):
+def create_html(file, data, category):
     click.echo("creating " + file)
     env = Environment(loader=PackageLoader("main"), autoescape=select_autoescape())
     template = env.get_template("index.html")
     with open("output/" + file, "w") as htmls_file:
         middle = ""
-        for key, value in data.items():
-            middle = middle + category_section(key, value)
-
+        if category:
+            csv_data = sorted(data, key=key_func)
+            for key, value in groupby(csv_data, key_func):
+                middle = middle + category_section(key, value)
+        else:
+            for index, value in enumerate(data):
+                middle = middle + product_section(index, value)
         htmls_file.write(template.render(category=middle))
         click.echo(file + " created")
         htmls_file.close()
@@ -128,40 +130,35 @@ def upload_file(blobname):
         blob.upload_from_filename("output/" + filename)
 
 
-def generate(data):
+def generate(blobname):
     click.echo("trying to open " + "product.csv")
     try:
-        create_html("index.html", data["items"])
-        upload_file(data["name"])
+        create_html("index.html", read_csv("input/" + "product.csv"), False)
+        upload_file(blobname)
     except FileNotFoundError:
         click.echo("product.csv" + " not found in input directory")
     except Exception as ex:
         click.echo(ex)
 
 
-@app.route("/", methods=["POST"])
-def index():
-    envelope = request.get_json()
-    if not envelope:
-        msg = "no Pub/Sub message received"
-        print(f"error: {msg}")
-        return f"Bad Request: {msg}", 400
-
-    if not isinstance(envelope, dict) or "message" not in envelope:
-        msg = "invalid Pub/Sub message format"
-        print(f"error: {msg}")
-        return f"Bad Request: {msg}", 400
-
-    pubsub_message = envelope["message"]
-
-    name = "World"
-
-    if isinstance(pubsub_message, dict) and "data" in pubsub_message:
-        name = base64.b64decode(pubsub_message["data"]).decode("utf-8").strip()
-        data = json.loads(name)
-        generate(data)
-        return ("", 204)
+def callback(message: pubsub_v1.subscriber.message.Message) -> None:
+    bdata = message.data
+    data = json.loads(bdata.decode())
+    generate(data["name"])
+    click.echo(data["name"])
+    message.ack()
 
 
 if __name__ == "__main__":
-    PORT = int(os.getenv("PORT")) if os.getenv("PORT") else 8080
+    streaming_pull_future = subscriber.subscribe(subscription_path, callback=callback)
+    print(f"Listening for messages on {subscription_path}..\n")
+
+    # Wrap subscriber in a 'with' block to automatically call close() when done.
+    with subscriber:
+        try:
+            # When `timeout` is not set, result() will block indefinitely,
+            # unless an exception is encountered first.
+            streaming_pull_future.result()
+        except TimeoutError:
+            streaming_pull_future.cancel()  # Trigger the shutdown.
+            streaming_pull_future.result()  # Block until the shutdown is complete.
