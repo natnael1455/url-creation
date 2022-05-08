@@ -1090,7 +1090,11 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
+<<<<<<< HEAD
 content-hash = "f50cd60f463fcf09e552c415ecb9bd7be821ba04f0376778a395ba705e1ddd63"
+=======
+content-hash = "260c186e7b0545c8b77978990c20a52b8167698fd7c6d4263381f031b563a5c3"
+>>>>>>> 80bc4813097852ad076588122f8a339a97a8fe15
 
 [metadata.files]
 aiogram = [
