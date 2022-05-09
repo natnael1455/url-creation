@@ -3,10 +3,5 @@
     "editor.formatOnSave": true,
     "prettier.eslintIntegration": true,
     "prettier.stylelintIntegration": true,
-    "cSpell.words": [
-        "baia",
-        "bdata",
-        "htmls",
-        "webp"
-    ]
+    "cSpell.words": ["baia", "bdata", "htmls", "webp"]
 }
