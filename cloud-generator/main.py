@@ -101,7 +101,7 @@ def index():
         name = json.loads(name)
 
         generate(name)
-    print(name["name"])
+    print(name)
 
     return ("", 204)
 
