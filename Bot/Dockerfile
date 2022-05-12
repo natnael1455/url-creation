@@ -1,5 +1,5 @@
 
-FROM python:3.10-slim
+FROM python:3.10
 
 
 ENV PYTHONUNBUFFERED True
@@ -10,4 +10,4 @@ COPY . ./
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 main:app
+CMD python3 main.py
