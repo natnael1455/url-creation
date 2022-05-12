@@ -7,7 +7,7 @@ from aiogram.dispatcher import Dispatcher
 from aiogram.dispatcher.webhook import SendMessage
 from aiogram.utils.executor import start_webhook
 
-API_TOKEN = "5377028994:AAEVchC-5eMjJKF61NBlCINhmEwrdboWE6Y"
+API_TOKEN = ""
 
 # webhook settings
 WEBHOOK_HOST = "https://bot-eobfkaafdq-lz.a.run.app"
