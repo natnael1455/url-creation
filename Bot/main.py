@@ -5,6 +5,7 @@ from aiogram import Bot, types
 from aiogram.contrib.middlewares.logging import LoggingMiddleware
 from aiogram.dispatcher import Dispatcher
 from aiogram.dispatcher.webhook import SendMessage
+from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
 from aiogram.utils.executor import start_webhook
 
 API_TOKEN = ""
@@ -18,6 +19,7 @@ print(WEBHOOK_URL)
 WEBAPP_HOST = "0.0.0.0"  # or ip
 WEBAPP_PORT = int(os.getenv("PORT"))
 
+
 logging.basicConfig(level=logging.INFO)
 
 bot = Bot(token=API_TOKEN)
@@ -25,13 +27,26 @@ dp = Dispatcher(bot)
 dp.middleware.setup(LoggingMiddleware())
 
 
+@dp.message_handler(commands=["start"])
+async def start(message: types.Message):
+    web = WebAppInfo(url="https://url-creation.vercel.app/")
+    button = InlineKeyboardButton("catalog", web_app=web)
+    markup = InlineKeyboardMarkup()
+    markup.add(button)
+    return SendMessage(
+        message.chat.id,
+        "hi there, welcome.Here are the different catalogs",
+        reply_markup=markup,
+    )
+
+
 @dp.message_handler()
 async def echo(message: types.Message):
     # Regular request
-    # await bot.send_message(message.chat.id, message.text)
+    # await bot.send_message(message.chat.id,)
 
     # or reply INTO webhook
-    return SendMessage(message.chat.id, message.text)
+    return SendMessage(message.chat.id, "to start use the /start command")
 
 
 async def on_startup(dp):
