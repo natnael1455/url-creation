@@ -16,7 +16,7 @@ WEBHOOK_PATH = "/api"
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
 print(WEBHOOK_URL)
 
-# webserver settings
+# webserver settingcd
 WEBAPP_HOST = "0.0.0.0"  # or ip
 WEBAPP_PORT = int(os.getenv("PORT"))
 
