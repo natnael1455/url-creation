@@ -63,7 +63,7 @@ def create_html(file, data):
 
 def upload_file(blobname):
     storage_client = storage.Client()
-    bucket = storage_client.bucket("baia-catalogs")
+    bucket = storage_client.bucket("service-catalogs")
     for filename in os.listdir("output"):
         blob = bucket.blob(blobname + "/" + filename)
         blob.upload_from_filename("output/" + filename)
