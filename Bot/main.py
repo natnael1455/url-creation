@@ -8,10 +8,10 @@ from aiogram.dispatcher.webhook import SendMessage
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
 from aiogram.utils.executor import start_webhook
 
-API_TOKEN = int(os.getenv("bot_token"))
+API_TOKEN = os.getenv("BotToken")
 
 # webhook settings
-WEBHOOK_HOST = "https://bot-35dnt5ajvq-lz.a.run.app"
+WEBHOOK_HOST = os.getenv("WebHook")
 WEBHOOK_PATH = "/api"
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
 print(WEBHOOK_URL)
