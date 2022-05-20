@@ -8,14 +8,15 @@ from aiogram.dispatcher.webhook import SendMessage
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
 from aiogram.utils.executor import start_webhook
 
-API_TOKEN = ""
+API_TOKEN = os.getenv("BotToken")
 
 # webhook settings
-WEBHOOK_HOST = "https://bot-eobfkaafdq-lz.a.run.app"
+WEBHOOK_HOST = os.getenv("WebHook")
 WEBHOOK_PATH = "/api"
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
 print(WEBHOOK_URL)
-# webserver settings
+
+# webserver settingcd
 WEBAPP_HOST = "0.0.0.0"  # or ip
 WEBAPP_PORT = int(os.getenv("PORT"))
 

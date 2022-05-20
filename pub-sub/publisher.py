@@ -20,8 +20,8 @@ def csv_reader(user_name, csv_file):
 
 
 def my_publisher(js):
-    project_id = "baia-project"
-    topic_id = "catalogTopic"
+    project_id = "telegram-project-350609"
+    topic_id = "catalog-topic"
     publisher = pubsub_v1.PublisherClient()
     topic_path = publisher.topic_path(project_id, topic_id)
     data = json.dumps(js)
