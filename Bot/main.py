@@ -47,6 +47,7 @@ async def echo(message: types.Message):
     # await bot.send_message(message.chat.id,)
 
     # or reply INTO webhook
+    print(message.text)
     return SendMessage(message.chat.id, "to start use the /start command")
 
 
