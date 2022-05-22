@@ -5,7 +5,13 @@ from aiogram import Bot, types
 from aiogram.contrib.middlewares.logging import LoggingMiddleware
 from aiogram.dispatcher import Dispatcher
 from aiogram.dispatcher.webhook import SendMessage
-from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
+from aiogram.types import (
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    KeyboardButton,
+    ReplyKeyboardMarkup,
+    WebAppInfo,
+)
 from aiogram.utils.executor import start_webhook
 
 API_TOKEN = os.getenv("BotToken")
@@ -32,12 +38,15 @@ dp.middleware.setup(LoggingMiddleware())
 async def start(message: types.Message):
     web = WebAppInfo(url="https://url-creation.vercel.app/")
     button = InlineKeyboardButton("catalog", web_app=web)
+    button2 = KeyboardButton("catalog", web_app=web)
     markup = InlineKeyboardMarkup()
+    kmarkup = ReplyKeyboardMarkup()
     markup.add(button)
+    kmarkup.add(button2)
     return SendMessage(
         message.chat.id,
         "hi there, welcome.Here are the different catalogs",
-        reply_markup=markup,
+        reply_markup=kmarkup,
     )
 
 
