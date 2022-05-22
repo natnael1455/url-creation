@@ -57,7 +57,7 @@ async def echo(message: types.Message):
 
     # or reply INTO webhook
     print(message.web_app_data)
-    return SendMessage(message.chat.id, "to start use the /start command")
+    return SendMessage(message.chat.id, message.web_app_data)
 
 
 async def on_startup(dp):
