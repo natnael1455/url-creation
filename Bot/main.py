@@ -41,6 +41,7 @@ async def start(message: types.Message):
     kmarkup = ReplyKeyboardMarkup()
     markup.add(button)
     kmarkup.add(button2)
+    logging.debug("message received")
     return SendMessage(
         message.chat.id,
         "hi there, welcome.Here are the different catalogs",
@@ -49,7 +50,7 @@ async def start(message: types.Message):
 
 
 @dp.message_handler()
-async def echo(message):
+async def echo(message: types.Message):
     # Regular request
     # await bot.send_message(message.chat.id,)
     # or reply INTO webhook
