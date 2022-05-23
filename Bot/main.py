@@ -50,19 +50,13 @@ async def start(message: types.Message):
     )
 
 
-@dp.send_message_handler()
-async def webdata(message: types.Message):
-    print(message.web_app_data.data)
-    return SendMessage(message.chat.id, message.web_app_data.data)
-
-
 @dp.message_handler()
 async def echo(message: types.Message):
     # Regular request
     # await bot.send_message(message.chat.id,)
 
     # or reply INTO webhook
-    print(message.web_app_data)
+    print(message.web_app_data.data)
     return SendMessage(message.chat.id, message.chat.id)
 
 
