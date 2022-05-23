@@ -49,7 +49,7 @@ async def start(message: types.Message):
 
 
 @dp.message_handler()
-async def echo(message: types.Message):
+async def echo(message):
     # Regular request
     # await bot.send_message(message.chat.id,)
     # or reply INTO webhook
