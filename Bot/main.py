@@ -15,19 +15,17 @@ from aiogram.types import (
 from aiogram.utils.executor import start_webhook
 
 API_TOKEN = os.getenv("BotToken")
-
 # webhook settings
 WEBHOOK_HOST = os.getenv("WebHook")
 WEBHOOK_PATH = "/api"
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
-print(WEBHOOK_URL)
 
-# webserver settingcd
+# webserver setting
 WEBAPP_HOST = "0.0.0.0"  # or ip
 WEBAPP_PORT = int(os.getenv("PORT"))
 
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
@@ -43,6 +41,7 @@ async def start(message: types.Message):
     kmarkup = ReplyKeyboardMarkup()
     markup.add(button)
     kmarkup.add(button2)
+    logging.debug("message received")
     return SendMessage(
         message.chat.id,
         "hi there, welcome.Here are the different catalogs",
@@ -50,19 +49,13 @@ async def start(message: types.Message):
     )
 
 
-@dp.send_message_handler()
-async def webdata(message: types.Message):
-    print(message.web_app_data.data)
-    return SendMessage(message.chat.id, message.web_app_data.data)
-
-
 @dp.message_handler()
 async def echo(message: types.Message):
     # Regular request
     # await bot.send_message(message.chat.id,)
-
     # or reply INTO webhook
-    print(message.web_app_data)
+    # print(message.web_app_data.data)
+    logging.info(message.text)
     return SendMessage(message.chat.id, message.chat.id)
 
 
