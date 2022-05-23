@@ -82,9 +82,11 @@ $('a.qty-plus').on('click', (event) => {
 
 $('a.btn-update').on('click', () => {
     create_url();
-    bot.sendData('hi');
 });
 
+$('a.btn-update-blue').on('click', () => {
+    bot.sendData('hi');
+});
 // RESTRICT INPUTS TO NUMBERS ONLY WITH A MIN OF 0 AND A MAX 100
 $('.qty').on('blur', (event) => {
     event.preventDefault();
