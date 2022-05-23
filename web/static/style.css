@@ -180,6 +180,12 @@ a.qty:hover {
     margin: 0 1.5em 1.5em 0;
 }
 
+.btn-update-blue {
+    float: right;
+    margin: 0 1.5em 1.5em 0;
+    background: #3106f0;
+}
+
 .btn-submit {
     float: right;
     margin: 0 1.5em 1.5em 0;
