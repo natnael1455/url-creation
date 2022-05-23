@@ -32,6 +32,11 @@ dp = Dispatcher(bot)
 dp.middleware.setup(LoggingMiddleware())
 
 
+@dp.message_handler(commands=["start"], regexp="^/start o_x")
+async def orders(message: types.Message):
+    return SendMessage(message.chat.id, message.text)
+
+
 @dp.message_handler(commands=["start"])
 async def start(message: types.Message):
     web = WebAppInfo(url="https://url-creation.vercel.app/")
@@ -41,7 +46,7 @@ async def start(message: types.Message):
     kmarkup = ReplyKeyboardMarkup()
     markup.add(button)
     kmarkup.add(button2)
-    logging.debug("message received")
+    logging.debug(message.text)
     return SendMessage(
         message.chat.id,
         "hi there, welcome.Here are the different catalogs",

@@ -39,6 +39,7 @@
     "dependencies": {
         "jquery": "^3.6.0",
         "jquery-min": "^0.0.2",
-        "jquery-slim": "^3.0.0"
+        "jquery-slim": "^3.0.0",
+        "vercel": "^24.2.4"
     }
 }
