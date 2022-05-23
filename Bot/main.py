@@ -54,7 +54,7 @@ async def echo(message: types.Message):
     # await bot.send_message(message.chat.id,)
     # or reply INTO webhook
     # print(message.web_app_data.data)
-    logging.info("Received message")
+    logging.info(message.text)
     return SendMessage(message.chat.id, message.chat.id)
 
 
