@@ -2,7 +2,7 @@ let pay_load = {};
 const bot = window.Telegram.WebApp;
 // url creating function
 const create_url = () => {
-    let url = 'http://t.me/natis_test_bot?startup=';
+    let url = 'http://t.me/natis_test_bot?start=';
     let pay_loads = 'o_x';
     let i = 0;
     for (let key in pay_load) {
