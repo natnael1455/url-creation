@@ -32,6 +32,30 @@ const create_url = () => {
     }
 };
 
+const send_payload = () => {
+    let pay_loads = '';
+    let i = 0;
+    for (let key in pay_load) {
+        let short_code = key.replace(/\s/g, '');
+        let value = pay_load[key];
+        if (value != 0) {
+            if (i == 0) {
+                pay_loads = pay_loads + '' + short_code + '_' + value;
+            } else {
+                pay_loads = pay_loads + '_' + short_code + '_' + value;
+            }
+            i++;
+        }
+    }
+    // checking if the payload with more 64 charters
+
+    //checking if the payload is empty
+    if (pay_loads === '') {
+        bot.sendData('you did not select any item');
+    } else {
+        bot.sendData(pay_loads);
+    }
+};
 // SHOPPING CART PLUS OR MINUS
 $('a.qty-minus').on('click', (event) => {
     event.preventDefault();
@@ -85,7 +109,7 @@ $('a.btn-update').on('click', () => {
 });
 
 $('a.btn-update-blue').on('click', () => {
-    bot.sendData('hi');
+    send_payload();
 });
 // RESTRICT INPUTS TO NUMBERS ONLY WITH A MIN OF 0 AND A MAX 100
 $('.qty').on('blur', (event) => {

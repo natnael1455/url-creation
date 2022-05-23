@@ -34,6 +34,7 @@ dp.middleware.setup(LoggingMiddleware())
 
 @dp.message_handler(commands=["start"], regexp="^/start o_x")
 async def orders(message: types.Message):
+
     return SendMessage(message.chat.id, message.text)
 
 
@@ -52,6 +53,11 @@ async def start(message: types.Message):
         "hi there, welcome.Here are the different catalogs",
         reply_markup=kmarkup,
     )
+
+
+@dp.message_handler(content_types=types.ContentType.WEB_APP_DATA)
+async def echos(message: types.Message):
+    return SendMessage(message.chat.id, message.web_app_data.data)
 
 
 @dp.message_handler()
