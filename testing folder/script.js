@@ -1,35 +1,43 @@
-import $ from 'jquery-slim';
-
-let pay_load = {};
+const pay_load = {};
+const bot = window.Telegram.WebApp;
 // url creating function
-const create_url = () => {
-    let url = 'https://t.me/kamata_staging_bot?start=';
-    let pay_loads = 'o_x';
-    let i = 0;
-    for (let key in pay_load) {
-        let short_code = key.replace(/\s/g, '');
-        let value = pay_load[key];
-        if (value != 0) {
-            if (i == 0) {
-                pay_loads = pay_loads + '' + short_code + '_' + value;
-            } else {
-                pay_loads = pay_loads + '_' + short_code + '_' + value;
-            }
-            i++;
-        }
-    }
-    // checking if the payload with more 64 charters
+const create_url = (PayLoad) => {
+    const url = 'http://t.me/natis_test_bot?start=';
+
+    const items = Object.entries(PayLoad).reduce((acc, value) => {
+        return value[1] !== 0 ? [...acc, `${value[0]}_${value[1]}`] : acc;
+    }, []);
+
+    const pay_loads = items.join('_');
+
     if (pay_loads.length > 64) {
         alert(
             'the size of the payload is more than 64 bytes please remove some items'
         );
-    }
-    //checking if the payload is empty
-    else if (pay_loads === 'o_x') {
-        alert('you did not select any item');
+    } else if (items.length === 0) {
+        alert(
+            'the size of the payload is more than 64 bytes please remove some items'
+        );
     } else {
-        let URL = url + pay_loads;
-        window.open(URL, '_blank');
+        const uri = `${url}o_x${pay_loads}`;
+        window.open(uri, '_blank');
+    }
+};
+
+const send_payload = (PayLoad) => {
+    const items = Object.entries(PayLoad).reduce((acc, value) => {
+        return value[1] !== 0 ? [...acc, `${value[0]}_${value[1]}`] : acc;
+    }, []);
+
+    const pay_loads = items.join('_');
+
+    // checking if the payload with more 64 charters
+
+    //checking if the payload is empty
+    if (pay_loads === '') {
+        bot.sendData('you did not select any item');
+    } else {
+        bot.sendData(pay_loads);
     }
 };
 
@@ -82,9 +90,12 @@ $('a.qty-plus').on('click', (event) => {
 });
 
 $('a.btn-update').on('click', () => {
-    create_url();
+    create_url(pay_load);
 });
 
+$('a.btn-update-blue').on('click', () => {
+    send_payload(pay_load);
+});
 // RESTRICT INPUTS TO NUMBERS ONLY WITH A MIN OF 0 AND A MAX 100
 $('.qty').on('blur', (event) => {
     event.preventDefault();
