@@ -10,6 +10,7 @@ from aiogram.types import (
     InlineKeyboardMarkup,
     KeyboardButton,
     ReplyKeyboardMarkup,
+    ReplyKeyboardRemove,
     WebAppInfo,
 )
 from aiogram.utils.executor import start_webhook
@@ -57,7 +58,9 @@ async def start(message: types.Message):
 
 @dp.message_handler(content_types=types.ContentType.WEB_APP_DATA)
 async def echos(message: types.Message):
-    return SendMessage(message.chat.id, message.web_app_data.data)
+    return SendMessage(
+        message.chat.id, message.web_app_data.data, reply_markup=ReplyKeyboardRemove()
+    )
 
 
 @dp.message_handler()
@@ -67,7 +70,10 @@ async def echo(message: types.Message):
     # or reply INTO webhook
     # print(message.web_app_data.data)
     logging.info(message.text)
-    return SendMessage(message.chat.id, message.chat.id)
+    return SendMessage(
+        message.chat.id,
+        "hi there. you can start ordering by clicking the start button from the menu",
+    )
 
 
 async def on_startup(dp):
